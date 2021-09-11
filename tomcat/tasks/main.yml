@@ -1,0 +1,12 @@
+- name: Downloading tomcat
+  get_url:
+    url: "https://downloads.apache.org/tomcat/tomcat-8/v8.5.69/bin/apache-tomcat-8.5.69.tar.gz"
+    dest: /usr/local
+- name: Extract tomcat
+  unarchive:
+    src: "/usr/local/apache-tomcat-8.5.69.tar.gz"
+    dest: /usr/local
+- name: Run Tomcat
+  shell: ./startup.sh
+  args:
+    chdir: /usr/local/apache-tomcat-8.5.69/bin
